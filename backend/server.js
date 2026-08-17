@@ -30,7 +30,7 @@ app.post("/api/login", (req, res) => {
 
     const sql = `
         SELECT *
-        FROM User
+        FROM user
         WHERE username = ?
     `;
 
