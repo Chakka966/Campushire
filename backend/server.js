@@ -189,12 +189,13 @@ app.get("/api/students", (req, res) => {
 
     db.query(sql, (err, results) => {
 
-        if (err) {
-            console.error("MySQL Error:", err);
-            return res.status(500).json({
-                error: "Database error"
-            });
-        }
+       if (err) {
+    console.error("MySQL Error:", err);
+
+    return res.status(500).json({
+        error: err.message
+    });
+}
 
         res.json(results);
     });
