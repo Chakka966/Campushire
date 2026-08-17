@@ -19,7 +19,7 @@ function Students() {
     // Fetch students
     const fetchStudents = () => {
         axios
-            .get("http://localhost:5000/api/students")
+            .get("https://campushire-production-8aad.up.railway.app /api/students")
             .then((response) => {
                 setStudents(response.data);
             })
@@ -52,7 +52,7 @@ function Students() {
             // UPDATE
             axios
                 .put(
-                    `http://localhost:5000/api/students/${editingStudent.student_id}`,
+                    `https://campushire-production-8aad.up.railway.app /api/students/${editingStudent.student_id}`,
                     formData
                 )
                 .then(() => {
@@ -83,7 +83,7 @@ function Students() {
             // ADD
             axios
                 .post(
-                    "http://localhost:5000/api/students",
+                    "https://campushire-production-8aad.up.railway.app /api/students",
                     formData
                 )
                 .then(() => {
@@ -139,7 +139,7 @@ function Students() {
 
         axios
             .delete(
-                `http://localhost:5000/api/students/${studentId}`
+                `https://campushire-production-8aad.up.railway.app /api/students/${studentId}`
             )
             .then(() => {
 

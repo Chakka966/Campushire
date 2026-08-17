@@ -38,7 +38,7 @@ function Drives() {
     const fetchDrives = () => {
 
         axios
-            .get("http://localhost:5000/api/drives")
+            .get("https://campushire-production-8aad.up.railway.app /api/drives")
             .then((response) => {
 
                 setDrives(response.data);
@@ -62,7 +62,7 @@ function Drives() {
     const fetchCompanies = () => {
 
         axios
-            .get("http://localhost:5000/api/companies")
+            .get("https://campushire-production-8aad.up.railway.app /api/companies")
             .then((response) => {
 
                 setCompanies(response.data);
@@ -145,7 +145,7 @@ function Drives() {
 
             axios
                 .put(
-                    `http://localhost:5000/api/drives/${editingDrive.drive_id}`,
+                    `https://campushire-production-8aad.up.railway.app /api/drives/${editingDrive.drive_id}`,
                     formData
                 )
                 .then(() => {
@@ -186,7 +186,7 @@ function Drives() {
 
             axios
                 .post(
-                    "http://localhost:5000/api/drives",
+                    "https://campushire-production-8aad.up.railway.app /api/drives",
                     formData
                 )
                 .then(() => {
@@ -263,7 +263,7 @@ function Drives() {
 
         axios
             .delete(
-                `http://localhost:5000/api/drives/${driveId}`
+                `https://campushire-production-8aad.up.railway.app /api/drives/${driveId}`
             )
             .then(() => {
 
@@ -319,7 +319,7 @@ function Drives() {
 
         axios
             .post(
-                "http://localhost:5000/api/applications",
+                "https://campushire-production-8aad.up.railway.app /api/applications",
                 {
                     student_id: user.student_id,
                     drive_id: driveId

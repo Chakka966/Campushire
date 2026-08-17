@@ -347,7 +347,7 @@ app.delete("/api/students/:id", (req, res) => {
 // Get all companies
 app.get("/api/companies", (req, res) => {
 
-    const sql = "SELECT * FROM Company";
+    const sql = "SELECT * FROM company";
 
     db.query(sql, (err, results) => {
 
@@ -374,7 +374,7 @@ app.post(
     const { company_name, package_lpa } = req.body;
 
     const sql = `
-        INSERT INTO Company (company_name, package_lpa)
+        INSERT INTO company (company_name, package_lpa)
         VALUES (?, ?)
     `;
 
@@ -492,8 +492,8 @@ app.get("/api/drives", (req, res) => {
             j.package_lpa,
             j.eligibility_cgpa,
             j.deadline
-        FROM Job_Drive j
-        JOIN Company c
+        FROM job_Drive j
+        JOIN company c
             ON j.company_id = c.company_id
     `;
 
@@ -528,7 +528,7 @@ app.post(
     } = req.body;
 
     const sql = `
-        INSERT INTO Job_Drive
+        INSERT INTO job_Drive
         (
             company_id,
             role,
@@ -585,7 +585,7 @@ app.put(
     } = req.body;
 
     const sql = `
-        UPDATE Job_Drive
+        UPDATE job_Drive
         SET
             company_id = ?,
             role = ?,
@@ -639,7 +639,7 @@ app.delete(
     const driveId = req.params.id;
 
     const sql = `
-        DELETE FROM Job_Drive
+        DELETE FROM job_Drive
         WHERE drive_id = ?
     `;
 
@@ -710,8 +710,8 @@ app.get("/api/drives/:id/eligible-students", (req, res) => {
             s.name,
             s.department,
             s.cgpa
-        FROM Student s
-        JOIN Job_Drive j
+        FROM student s
+        JOIN job_Drive j
             ON s.cgpa >= j.eligibility_cgpa
         WHERE j.drive_id = ?
         ORDER BY s.cgpa DESC
@@ -777,7 +777,7 @@ app.post("/api/applications", (req, res) => {
 
             // Insert application
             const sql = `
-                INSERT INTO Application
+                INSERT INTO application
                 (
                     student_id,
                     drive_id,
@@ -892,8 +892,8 @@ app.get("/api/applications", (req, res) => {
                     j.role,
                     j.package_lpa,
                     a.status
-                FROM Application a
-                JOIN Student s
+                FROM application a
+                JOIN student s
                     ON a.student_id = s.student_id
                 JOIN job_Drive j
                     ON a.drive_id = j.drive_id
@@ -951,31 +951,31 @@ app.get("/api/dashboard/stats", (req, res) => {
         SELECT
 
             (SELECT COUNT(*)
-             FROM Student) AS students,
+             FROM student) AS students,
 
             (SELECT COUNT(*)
-             FROM Company) AS companies,
+             FROM company) AS companies,
 
             (SELECT COUNT(*)
-             FROM Job_Drive) AS drives,
+             FROM job_Drive) AS drives,
 
             (SELECT COUNT(*)
-             FROM Application) AS applications,
+             FROM application) AS applications,
 
             (SELECT COUNT(*)
-             FROM Application
+             FROM application
              WHERE status = 'Applied') AS applied,
 
             (SELECT COUNT(*)
-             FROM Application
+             FROM application
              WHERE status = 'Shortlisted') AS shortlisted,
 
             (SELECT COUNT(*)
-             FROM Application
+             FROM application
              WHERE status = 'Selected') AS selected,
 
             (SELECT COUNT(*)
-             FROM Application
+             FROM application
              WHERE status = 'Rejected') AS rejected
     `;
 

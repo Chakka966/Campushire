@@ -13,7 +13,7 @@ function Applicants() {
     useEffect(() => {
 
         axios
-            .get(`http://localhost:5000/api/drives/${id}/applicants`)
+            .get(`https://campushire-production-8aad.up.railway.app /api/drives/${id}/applicants`)
             .then((response) => {
                 setApplicants(response.data);
                 setLoading(false);

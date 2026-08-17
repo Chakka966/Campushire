@@ -16,7 +16,7 @@ function Login({ setUser }) {
         try {
 
             const response = await axios.post(
-                "http://localhost:5000/api/login",
+                "https://campushire-production-8aad.up.railway.app/api/login",
                 {
                     username,
                     password

@@ -18,7 +18,7 @@ function Companies() {
 
     const fetchCompanies = () => {
         axios
-            .get("http://localhost:5000/api/companies")
+            .get("https://campushire-production-8aad.up.railway.app /api/companies")
             .then((response) => {
                 setCompanies(response.data);
             })
@@ -53,7 +53,7 @@ function Companies() {
         if (editingCompany) {
             axios
                 .put(
-                    `http://localhost:5000/api/companies/${editingCompany.company_id}`,
+                    `https://campushire-production-8aad.up.railway.app /api/companies/${editingCompany.company_id}`,
                     formData
                 )
                 .then(() => {
@@ -87,7 +87,7 @@ function Companies() {
         else {
             axios
                 .post(
-                    "http://localhost:5000/api/companies",
+                    "https://campushire-production-8aad.up.railway.app /api/companies",
                     formData
                 )
                 .then(() => {
@@ -149,7 +149,7 @@ function Companies() {
 
         axios
             .delete(
-                `http://localhost:5000/api/companies/${companyId}`
+                `https://campushire-production-8aad.up.railway.app /api/companies/${companyId}`
             )
             .then(() => {
                 alert("Company deleted successfully!");

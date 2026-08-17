@@ -67,7 +67,7 @@ function Dashboard({ user }) {
         if (user?.role === "admin") {
 
             axios
-                .get("http://localhost:5000/api/students")
+                .get("https://campushire-production-8aad.up.railway.app /api/students")
                 .then((response) => {
                     setStudents(response.data);
                 })
@@ -85,7 +85,7 @@ function Dashboard({ user }) {
 
         axios
             .get(
-                "http://localhost:5000/api/dashboard/stats",
+                "https://campushire-production-8aad.up.railway.app /api/dashboard/stats",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
