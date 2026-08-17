@@ -56,9 +56,8 @@ app.post("/api/login", (req, res) => {
             password,
             user.password
         );
-
-        console.log("Username:", username);
-console.log("Password match:", passwordMatch);
+        console.log("LOGIN USER:", username);
+        console.log("PASSWORD MATCH:", passwordMatch);
 
         if (!passwordMatch) {
             return res.status(401).json({
