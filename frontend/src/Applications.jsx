@@ -45,7 +45,7 @@ function Applications() {
   // Fetch students
   const fetchStudents = () => {
     axios
-      .get("https://campushire-production-8aad.up.railway.app /api/students")
+      .get("https://campushire-production-8aad.up.railway.app/api/students")
       .then((response) => {
         setStudents(response.data);
       })
@@ -57,7 +57,7 @@ function Applications() {
   // Fetch job drives
   const fetchDrives = () => {
     axios
-      .get("https://campushire-production-8aad.up.railway.app /api/drives")
+      .get("https://campushire-production-8aad.up.railway.app/api/drives")
       .then((response) => {
         setDrives(response.data);
       })
@@ -85,7 +85,7 @@ function Applications() {
     e.preventDefault();
 
     axios
-      .post("https://campushire-production-8aad.up.railway.app /api/applications", {
+      .post("https://campushire-production-8aad.up.railway.app/api/applications", {
         student_id: formData.student_id,
         drive_id: formData.drive_id
       })
@@ -119,7 +119,7 @@ function Applications() {
 
     axios
         .put(
-            `https://campushire-production-8aad.up.railway.app /api/applications/${applicationId}/status`,
+            `https://campushire-production-8aad.up.railway.app/api/applications/${applicationId}/status`,
             {
                 status: status
             }

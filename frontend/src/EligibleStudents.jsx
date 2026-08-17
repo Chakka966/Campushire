@@ -14,7 +14,7 @@ function EligibleStudents() {
 
         axios
             .get(
-                `https://campushire-production-8aad.up.railway.app /api/drives/${id}/eligible-students`
+                `https://campushire-production-8aad.up.railway.app/api/drives/${id}/eligible-students`
             )
             .then((response) => {
 

@@ -18,10 +18,12 @@ function Companies() {
 
     const fetchCompanies = () => {
         axios
-            .get("https://campushire-production-8aad.up.railway.app /api/companies")
+            .get("https://campushire-production-8aad.up.railway.app/api/companies")
             .then((response) => {
-                setCompanies(response.data);
-            })
+    console.log("COMPANIES API RESPONSE:", response.data);
+    console.log("IS ARRAY:", Array.isArray(response.data));
+    setCompanies(response.data);
+})
             .catch((error) => {
                 console.error("Error fetching companies:", error);
             });
@@ -53,7 +55,7 @@ function Companies() {
         if (editingCompany) {
             axios
                 .put(
-                    `https://campushire-production-8aad.up.railway.app /api/companies/${editingCompany.company_id}`,
+                    `https://campushire-production-8aad.up.railway.app/api/companies/${editingCompany.company_id}`,
                     formData
                 )
                 .then(() => {
@@ -87,7 +89,7 @@ function Companies() {
         else {
             axios
                 .post(
-                    "https://campushire-production-8aad.up.railway.app /api/companies",
+                    "https://campushire-production-8aad.up.railway.app/api/companies",
                     formData
                 )
                 .then(() => {
@@ -149,7 +151,7 @@ function Companies() {
 
         axios
             .delete(
-                `https://campushire-production-8aad.up.railway.app /api/companies/${companyId}`
+                `https://campushire-production-8aad.up.railway.app/api/companies/${companyId}`
             )
             .then(() => {
                 alert("Company deleted successfully!");

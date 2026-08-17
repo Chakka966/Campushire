@@ -12,7 +12,7 @@ function DriveApplicants() {
     const fetchApplicants = () => {
 
         axios
-            .get(`https://campushire-production-8aad.up.railway.app /api/drives/${drive_id}/applications`)
+            .get(`https://campushire-production-8aad.up.railway.app/api/drives/${drive_id}/applications`)
             .then((response) => {
                 setApplicants(response.data);
             })
@@ -32,7 +32,7 @@ function DriveApplicants() {
 
         axios
             .put(
-                `https://campushire-production-8aad.up.railway.app /api/applications/${applicationId}/status`,
+                `https://campushire-production-8aad.up.railway.app/api/applications/${applicationId}/status`,
                 { status: status }
             )
             .then(() => {
