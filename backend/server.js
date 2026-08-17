@@ -57,6 +57,9 @@ app.post("/api/login", (req, res) => {
             user.password
         );
 
+        console.log("Username:", username);
+console.log("Password match:", passwordMatch);
+
         if (!passwordMatch) {
             return res.status(401).json({
                 error: "Invalid username or password"
