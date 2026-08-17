@@ -185,7 +185,7 @@ const verifyToken = (req, res, next) => {
 // Get all students
 app.get("/api/students", (req, res) => {
 
-    const sql = "SELECT * FROM Student";
+    const sql = "SELECT * FROM student";
 
     db.query(sql, (err, results) => {
 
@@ -678,8 +678,8 @@ app.get("/api/drives/:id/applicants", (req, res) => {
             s.department,
             s.cgpa,
             a.status
-        FROM Application a
-        JOIN Student s
+        FROM application a
+        JOIN student s
             ON a.student_id = s.student_id
         WHERE a.drive_id = ?
         ORDER BY s.name
@@ -744,7 +744,7 @@ app.post("/api/applications", (req, res) => {
     // Check duplicate application
     const checkSql = `
         SELECT application_id
-        FROM Application
+        FROM application
         WHERE student_id = ?
         AND drive_id = ?
     `;
@@ -822,7 +822,7 @@ app.put(
         const { status } = req.body;
 
         const sql = `
-            UPDATE Application
+            UPDATE application
             SET status = ?
             WHERE application_id = ?
         `;
@@ -892,9 +892,9 @@ app.get("/api/applications", (req, res) => {
                 FROM Application a
                 JOIN Student s
                     ON a.student_id = s.student_id
-                JOIN Job_Drive j
+                JOIN job_Drive j
                     ON a.drive_id = j.drive_id
-                JOIN Company c
+                JOIN company c
                     ON j.company_id = c.company_id
             `;
 
