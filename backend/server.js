@@ -492,7 +492,7 @@ app.get("/api/drives", (req, res) => {
             j.package_lpa,
             j.eligibility_cgpa,
             j.deadline
-        FROM job_Drive j
+        FROM job_drive j
         JOIN company c
             ON j.company_id = c.company_id
     `;
@@ -528,7 +528,7 @@ app.post(
     } = req.body;
 
     const sql = `
-        INSERT INTO job_Drive
+        INSERT INTO job_drive
         (
             company_id,
             role,
@@ -585,7 +585,7 @@ app.put(
     } = req.body;
 
     const sql = `
-        UPDATE job_Drive
+        UPDATE job_drive
         SET
             company_id = ?,
             role = ?,
@@ -639,7 +639,7 @@ app.delete(
     const driveId = req.params.id;
 
     const sql = `
-        DELETE FROM job_Drive
+        DELETE FROM job_drive
         WHERE drive_id = ?
     `;
 
@@ -711,7 +711,7 @@ app.get("/api/drives/:id/eligible-students", (req, res) => {
             s.department,
             s.cgpa
         FROM student s
-        JOIN job_Drive j
+        JOIN job_drive j
             ON s.cgpa >= j.eligibility_cgpa
         WHERE j.drive_id = ?
         ORDER BY s.cgpa DESC
@@ -895,7 +895,7 @@ app.get("/api/applications", (req, res) => {
                 FROM application a
                 JOIN student s
                     ON a.student_id = s.student_id
-                JOIN job_Drive j
+                JOIN job_drive j
                     ON a.drive_id = j.drive_id
                 JOIN company c
                     ON j.company_id = c.company_id
@@ -957,7 +957,7 @@ app.get("/api/dashboard/stats", (req, res) => {
              FROM company) AS companies,
 
             (SELECT COUNT(*)
-             FROM job_Drive) AS drives,
+             FROM job_drive) AS drives,
 
             (SELECT COUNT(*)
              FROM application) AS applications,
