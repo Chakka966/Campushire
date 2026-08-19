@@ -12,7 +12,7 @@ import {
 import "./App.css";
 import Login from "./Login";
 import Students from "./Students";
-import Companies from "./Companies";
+import Companies from "./companies";
 import Drives from "./Drives";
 import Applications from "./Applications";
 import Applicants from "./Applicants";
