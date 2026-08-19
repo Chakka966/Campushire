@@ -22,7 +22,7 @@ function Applications() {
     const token = localStorage.getItem("token");
 
     axios
-        .get("https://campushire-production-8aad.up.railway.app /api/applications", {
+        .get("https://campushire-production-8aad.up.railway.app/api/applications", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
